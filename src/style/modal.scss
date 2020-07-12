@@ -1,0 +1,206 @@
+@import './tiny.scss';
+/*弹框样式*/
+
+.page-modal {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    overflow: hidden;
+    .modal-dialog {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: auto auto;
+        max-width: 500px;
+        min-width: 300px;
+        z-index: 10000;
+        border-radius: 4px;
+        overflow: hidden;
+        .modal-content {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            outline: 0;
+            border-radius: 4px;
+            background-color: #fff;
+            background-clip: padding-box;
+            overflow: hidden;
+            .modal-header {
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                z-index: 10000;
+                padding: 0 20px;
+                width: 100%;
+                height: 40px;
+                background-color: #f0f1f2;
+                box-sizing: border-box;
+                h4 {
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                    height: 40px;
+                    line-height: 40px;
+                    color: #444;
+                    font-size: 14px;
+                    font-weight: normal;
+                    .center-title {
+                        width: 100%;
+                        text-align: center;
+                    }
+                    .close-x.el-icon-close {
+                        display: inline-block;
+                        width: 16px;
+                        height: 40px;
+                        line-height: 40px;
+                        float: right;
+                        color: #444;
+                        font-size: 16px;
+                        font-weight: 600;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .modal-body {
+                position: absolute;
+                top: 40px;
+                padding: 10px 20px 0 20px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .modal-footer {
+                display: inline-block;
+                position: absolute;
+                bottom: 0;
+                padding: 10px 20px;
+                z-index: 10000;
+                width: 100%;
+                height: 50px;
+                font-size: 0;
+                text-align: right;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+
+/* 项目新建 、编辑 底部btn */
+.form-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    text-align: right;
+    font-size: 0;
+}
+
+/* 企业曾用名列表 */
+.contacts {
+    .form-title {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+        font-family: $fonttype;
+        color: #444;
+        background: rgba(246,246,246,1);
+        &:hover {
+            .remove {
+                display: inline-block;
+                [class*=" el-icon-"], [class^=el-icon-] {
+                    color: $mainColor;
+                }
+            }
+        }
+        .remove {
+            display: none;
+            margin-right: 10px;
+            [class*=" el-icon-"], [class^=el-icon-] {
+                color: #A8A8A8;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        }
+    }
+    .contacts-info {
+        padding-bottom: 5px;
+        border-bottom: 1px dashed #e8e5e5;
+        .info {
+            .form-group {
+                padding: 0;
+                display: inline-block;
+                width: 46%;
+                margin-bottom: 0px 0 5px 0px;
+                color: #606266;
+            }
+        }
+    }
+}
+
+/* 项目新建 、编辑 新增曾用名 */
+.form-add {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    font-family: $fonttype;
+    color: $mainColor;
+    [class*=" el-icon-"], [class^=el-icon-] {
+        text-indent: 0;
+    }
+}
+
+/* 表单 */
+.form-group {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    .label {
+        display: inline-block;
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        text-align: left;
+        vertical-align: top;
+        .required {
+            display: inline-block;
+            color: #F56C6C;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 30px;
+            vertical-align: sub;
+        }
+    }
+    .form-control {
+        display: inline-block;
+        width: 100%;
+        border-radius: 0;
+        vertical-align: top;
+        outline: none;
+    }
+
+    /* 表单提示信息 */
+    .tip-container {
+        display: inline-block;
+        width: 100%;
+        margin-top: 10px;
+        vertical-align: top;
+        text-align: center;
+        font-size: 12px;
+        color: #ccc;
+        .el-icon-info {
+            color: #ec8b0e;
+        }
+    }
+}

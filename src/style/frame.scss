@@ -1,0 +1,138 @@
+@import './tiny.scss';
+.page-menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 100;
+    box-sizing: border-box;
+    background: #2a567b;
+}
+
+.page-info {
+    display: block;
+    position: relative;
+    margin: 20px 0;
+    margin-top: 80px;
+    width: 100%;
+    height: 200px;
+    z-index: 50;
+    box-sizing: border-box;
+}
+
+.page-view {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    z-index: 50;
+    box-sizing: border-box;
+}
+
+.page-container {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    height: 100%;
+    z-index: 50;
+    box-sizing: border-box;
+    .page-head {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #eaedf1;
+    }
+    .page-body {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        .body-header {
+            margin-bottom: 10px;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px solid #eaedf1;
+            box-sizing: border-box;
+        }
+        .body-filter {
+            height: auto;
+            min-height: 600px;
+            .type-title {
+                height: 40px;
+                line-height: 40px;
+                font-size: 14px;
+            }
+            .type-item {
+                margin: 10px 0;
+                height: 35px;
+                line-height: 35px;
+                font-size: 14px;
+                border-radius: 4px;
+                cursor: pointer;
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+                &:hover {
+                    background: #fff;
+                    .item-name {
+                        color: $mainColor;
+                        border-left: 2px solid $mainColor;
+                        .icon {
+                            color: $mainColor;
+                        }
+                    }
+                }
+                .item-name {
+                    display: inline-block;
+                    padding-left: 10px;
+                    width: 100%;
+                    height: 35px;
+                    line-height: 35px;
+                    font-size: 14px;
+                    font-family: $fonttype;
+                    box-sizing: border-box;
+                    .icon {
+                        color: #ccc;
+                        font-size: 16px;
+                    }
+                }
+            }
+            .type-item.active {
+                background: #fff;
+                .item-name {
+                    color: $mainColor;
+                    border-left: 2px solid $mainColor;
+                    .icon {
+                        color: $mainColor;
+                    }
+                }
+            }
+            .add-type {
+                height: 40px;
+                line-height: 40px;
+                font-size: 14px;
+                cursor: pointer;
+                .el-icon-plus {
+                    color: $mainColor;
+                    font-size: 16px;
+                }
+            }
+        }
+        .body-list {
+            width: 100%;
+            height: auto;
+            min-height: 600px;
+            box-sizing: border-box;
+        }
+    }
+}
+
+.page-footer {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    z-index: 50;
+    box-sizing: border-box;
+    background: #2a567b;
+}

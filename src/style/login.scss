@@ -1,0 +1,68 @@
+@import './tiny.scss';
+/*登录页面样式*/
+
+.login-form {
+    padding: 40px;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 18px 18px rgba(0, 0, 0, 0.2);
+    .el-icon-close {
+        position: absolute;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        top: 20px;
+        right: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .dataSet {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 40px;
+        color: #08b1f5;
+    }
+    .weChat-image {
+        margin-top: 10px;
+        width: 100%;
+        height: 205px;
+        text-align: center;
+        #image {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    }
+    .weChat-text {
+        margin-top: 10px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        color: #3eb94e;
+        font-size: 14px;
+        font-family: $fonttype;
+        .iconfont {
+            font-size: 18px;
+        }
+    }
+    .result {
+        height: 20px;
+        line-height: 20px;
+        color: #444;
+        text-align: center;
+        font-size: 12px;
+        font-family: $fonttype;
+        .el-icon-success {
+            color: $success;
+        }
+        .el-icon-error {
+            color: $error;
+        }
+    }
+}
