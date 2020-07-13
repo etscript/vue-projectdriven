@@ -14,7 +14,7 @@
 
         <div class="list-main">
           <!-- <router-link :to="{path:`/blog/${item.id}`}" class="tag">postman</router-link> -->
-          <h3 v-html="item.title"></h3> 
+          <h3 v-html="item.title"></h3>
           <!-- <h3> <vue-markdown :source="item.title" v-highlight></vue-markdown> </h3>-->
           <div class="content-short"> {{item.content_short}}</div>
           <!-- <div class="creattime">
@@ -94,6 +94,12 @@ export default {
       this.getArticles()
     }
   },
+  watch: {
+    $route(to, from) {
+      // 在mounted函数执行的方法，放到该处
+      this.getArticles()
+      }
+    },
   methods: {
     ...mapActions([
       'Tag', 'Classify'
@@ -109,7 +115,7 @@ export default {
       } else {
         path = `/api/search/?page=${page}&per_page=${per_page}`
       }
-      this.$get(path, this.pageModel).then(res => {
+      this.$get(path).then(res => {
         this.pageModel.sumCount = res.data._meta.total_items
         this.articles = res.data.items
         this.AddStaticUrl()
@@ -170,7 +176,6 @@ export default {
         this.articles = res.data.data
         this.AddStaticUrl()
         this.Classify(this.$route.query.classify)
-
         this.loading = false
       })
     },

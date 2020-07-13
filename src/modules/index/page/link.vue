@@ -12,7 +12,7 @@
           <h4>格式示例</h4>
           <p>名称: Project Driven</p>
           <p>链接: http://project-driven.xyz</p>
-          <p>头像: http://project-driven.xyz/u/23181508?s=460&v=4</p>
+          <!-- <p>头像: http://project-driven.xyz/u/23181508?s=460&v=4</p> -->
           <p>简介: Hello. I am Baymax, your personal healthcare companion.</p>
         </div>
 
@@ -65,12 +65,12 @@ export default {
   },
   methods: {
     // 获取留言 all=1请求所有，不加的话请求的是有效期内的
-    getLink() {
-      this.$post('/api/link/list', this.pageModel).then(res => {
-        this.links = res.data.data
-        this.loading = false
-      }).catch(() => {})
-    }
+    // getLink() {
+    //   this.$post('/api/link/list', this.pageModel).then(res => {
+    //     this.links = res.data.data
+    //     this.loading = false
+    //   }).catch(() => {})
+    // }
   }
 }
 </script>

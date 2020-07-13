@@ -11,7 +11,7 @@
         <div class="search" >
           <el-form class="searchform">
             <!-- <el-input :model="keyword" placeholder="请输入关键字..." @blur='queryData' @input="queryData"/> -->
-            <el-input v-model="keyword" type="text" placeholder="请输入关键字..." />
+            <el-input v-model="keyword" type="text" placeholder="请输入关键字..." @keyup.enter.native="search"/>
           </el-form>
 
           <el-button class="searchbutton" @click="search">
@@ -81,14 +81,15 @@ export default {
     return {
       nav: [
         {name: '首页', url: '/blog', icon: 'ios-book'},
-        {name: 'Linux', url: '/linux', icon: 'logo-octocat'},
-        {name: 'Python', url: '/python', icon: 'logo-usd'},
-        {name: 'Docker', url: '/docker', icon: 'md-chatboxes'},
-        {name: 'CI/CD', url: '/cicd', icon: 'md-chatboxes'},
+        {name: 'Kubernetes', url: '/search?q=kubernetes', icon: 'logo-octocat'},
+        {name: 'Flask', url: '/search?q=flask', icon: 'logo-usd'},
+        {name: 'Vue', url: '/search?q=vue', icon: 'md-chatboxes'},
+        {name: 'ML', url: '/search?q=ml', icon: 'md-chatboxes'},
+        {name: 'Finance', url: '/search?q=finance', icon: 'md-chatboxes'},
         {name: '友链', url: '/link', icon: 'logo-octocat'},
         // {name: '打赏', url: '/donate', icon: 'logo-usd'},
         {name: '留言', url: '/message', icon: 'md-chatboxes'},
-        {name: '关于我', url: '/about', icon: 'md-beer'},
+        {name: '我', url: '/about', icon: 'md-beer'},
       ],
       mobnav: '2',
       keyword: ''
@@ -159,6 +160,7 @@ export default {
         this.$router.push({ path:'/search'})
       } else {
         this.$router.push({ path:'/search', query:{q: this.keyword}})
+        this.keyword = ''
       }
     }
   },

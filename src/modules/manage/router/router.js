@@ -35,8 +35,8 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   // 使用钩子函数对路由进行权限跳转
   // 如果用户已经登录，访问登录和注册时，自动跳转到首页
-  // const isadmin = store.state.user.user.admin
-  const isadmin = "1"
+  const isadmin = store.state.user.user.admin
+  // const isadmin = "1"
   // 判断该路由是否需要登录权限
   if (to.meta.requireAuth) {
     if (isadmin) {  // 通过vuex state获取是否管理员

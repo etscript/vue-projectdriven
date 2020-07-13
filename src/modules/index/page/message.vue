@@ -1,7 +1,7 @@
 <template>
   <div class="higtlight">
     <div class="about-bg">
-      <img :src="$staticUrl + banners[3].url" class="bg-img">
+      <!-- <img :src="$staticUrl + banners[3].url" class="bg-img"> -->
       <div class="bg"></div>
       <p class="mgs-title">Say Hello~</p>
       <!-- 评论框 -->
@@ -123,31 +123,31 @@ export default {
     // 获取留言
     getMessage() {
       // this.loading = true
-      this.$post('/api/message/list', this.pageModel).then(res => {
-        this.loading = false
-        this.pageModel.sumCount = res.data.total
-        this.messageList = res.data.data
-        // 转markdown语法
-        this.messageList.forEach(item => {
-          item.content = marked(item.content, { sanitize: true })
-          // 转换换行
-          // item.content = item.content.replace(/\n/g, '<br>')
-        })
-      }).catch(() =>{})
+      // this.$post('/api/message/list', this.pageModel).then(res => {
+      //   this.loading = false
+      //   this.pageModel.sumCount = res.data.total
+      //   this.messageList = res.data.data
+      //   // 转markdown语法
+      //   this.messageList.forEach(item => {
+      //     item.content = marked(item.content, { sanitize: true })
+      //     // 转换换行
+      //     // item.content = item.content.replace(/\n/g, '<br>')
+      //   })
+      // }).catch(() =>{})
     },    
     selectRoleList() {
       this.getMessage()
     },
     // 提交留言
     submitMessage() {
-      this.$post('/api/message/add', this.message).then(res => {
-        this.getMessage()
-        this.$Message.success(res.message)
-        this.message = {
-          content: '',
-          name: ''
-        }
-      }).catch(() =>{})
+      // this.$post('/api/message/add', this.message).then(res => {
+      //   this.getMessage()
+      //   this.$Message.success(res.message)
+      //   this.message = {
+      //     content: '',
+      //     name: ''
+      //   }
+      // }).catch(() =>{})
     },
     // 删除自己的留言
     deleteComment(item) {
