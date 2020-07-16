@@ -65,7 +65,7 @@
                     //     url: config.rootPath + '/api/get_qrcode',
                     // });
                     
-                    let result = await axios.get("http://wx.project-driven.xyz/api/get_qrcode")
+                    let result = await axios.get("http://project-driven.xyz/api/get_qrcode")
                     console.log(result.data)
                     console.log(result.data.data.qrcode_url)
                     // this.$store.dispatch('SET_USER_ACCOUNT', result.data.data);

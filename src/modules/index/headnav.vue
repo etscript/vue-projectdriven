@@ -81,11 +81,11 @@ export default {
     return {
       nav: [
         {name: '首页', url: '/blog', icon: 'ios-book'},
-        {name: 'Kubernetes', url: '/search?q=kubernetes', icon: 'logo-octocat'},
-        {name: 'Flask', url: '/search?q=flask', icon: 'logo-usd'},
-        {name: 'Vue', url: '/search?q=vue', icon: 'md-chatboxes'},
-        {name: 'ML', url: '/search?q=ml', icon: 'md-chatboxes'},
-        {name: 'Finance', url: '/search?q=finance', icon: 'md-chatboxes'},
+        {name: 'Kubernetes', url: '/kubernetes', icon: 'logo-octocat'},
+        {name: 'Finance', url: '/finance', icon: 'md-chatboxes'},
+        {name: 'Flask', url: '/flask', icon: 'logo-usd'},
+        {name: 'Vue', url: '/vue', icon: 'md-chatboxes'},
+        {name: 'ML', url: '/ml', icon: 'md-chatboxes'},
         {name: '友链', url: '/link', icon: 'logo-octocat'},
         // {name: '打赏', url: '/donate', icon: 'logo-usd'},
         {name: '留言', url: '/message', icon: 'md-chatboxes'},
@@ -101,10 +101,10 @@ export default {
       'user'
     ]),
   },
-  created(){
-    console.log("看下user的数据"),
-    console.log(this.user)
-  },
+  // created(){
+  //   console.log("看下user的数据"),
+  //   console.log(this.user)
+  // },
   watch:{
     $route(to,from){
       this.mobnav = '2'
@@ -114,17 +114,24 @@ export default {
     ...mapActions(['Logout']),
     goRouter(item) {
       // 当有选择标签或者分类时点击博客自动选择
-      if (item == '/blog') {
-        if (this.classify && this.classify!='all') {
-          this.$router.push({path:'/blog', query:{classify: this.classify}})
-        } else if (this.tag) {
-          this.$router.push({path:'/blog', query:{tag: this.tag}})
-        } else {
-          this.$router.push({path:'/blog'})
-        }
-      } else {
+      // if (item == '/blog') {
+      //   if (this.classify && this.classify!='all') {
+      //     this.$router.push({path:'/blog', query:{classify: this.classify}})
+      //   } else if (this.tag) {
+      //     this.$router.push({path:'/blog', query:{tag: this.tag}})
+      //   } else {
+      //     this.$router.push({path:'/blog'})
+      //   }
+      // } else {
+      //   this.$router.push({ path: item})
+      // }
+      if (["/blog","/link","/message","/about"].indexOf(item) != -1){
         this.$router.push({ path: item})
       }
+      else{
+        this.$router.push({ path: item, query:{tag: String(item).substr(1)}})
+      }
+      
     },
     changeMenu(item) {
       if (item == 'changePasswd') {

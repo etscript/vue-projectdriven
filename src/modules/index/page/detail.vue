@@ -21,9 +21,9 @@
       <TextLoading class="article" v-if="text_loading"></TextLoading>
 
       <div class="article" v-else>
-        <div v-html="compiledMarkdown" v-highlight></div>
+        <!-- <div v-html="compiledMarkdown" v-highlight></div> -->
         <!-- <vue-markdown>{{detail.content}}</vue-markdown> -->
-        <!-- <mavon-editor
+        <mavon-editor
             class="md"
           :value = "detail.content"
           :subfield = "prop.subfield"
@@ -33,7 +33,8 @@
           :scrollStyle = "prop.scrollStyle"
           :boxShadow="false"
           :transition="false"
-        ></mavon-editor> -->
+          codeStyle = 'github'
+        ></mavon-editor>
 
         <!-- 许可 -->
         <div class="posmition">
@@ -138,6 +139,7 @@
 import {mapGetters} from "vuex"
 import marked from 'marked'
 import '@/style/message.styl'
+// import 'highlight.js/styles/monokai-sublime.css' //这个样式有多种类型可选择
 
 export default {
   data() {
@@ -162,7 +164,7 @@ export default {
       },
       page: 2,
       hasMore: true,
-      href: ''
+      href: '',
     }
   },
   computed: {
@@ -170,7 +172,21 @@ export default {
         'user'
     ]),
     compiledMarkdown: function () {
-      return marked(this.detail.content, { sanitize: true })
+      // marked.setOptions({
+      //   renderer: new marked.Renderer(),
+      //   gfm: false,
+      //   tables: true,
+      //   breaks: false,
+      //   pedantic: false,
+      //   sanitize: false,
+      //   smartLists: false,
+      //   smartypants: false,
+      //   highlight: function (code) {
+      //     return require('highlight.js').highlightAuto(code).value;
+      //   }
+      // });
+      // return marked(this.detail.content, { sanitize: true })
+      return marked(this.detail.content)
     },
     prop () {
           let data = {
@@ -178,7 +194,9 @@ export default {
             defaultOpen: 'preview',//edit： 默认展示编辑区域 ， preview： 默认展示预览区域 
             editable: false,
             toolbarsFlag: false,
-            scrollStyle: true
+            scrollStyle: true,
+            codeStyle: 'atom-one-light',
+
           }
           return data
         }
@@ -300,7 +318,7 @@ export default {
     padding: 0 0 50px;
     color: #22292f;
     line-height: 1.15;
-    font-family: monospace;
+    // font-family: monospace;
   .post-box
     border-top: 1px solid #b8c2cc;
     background: #f8fafc;

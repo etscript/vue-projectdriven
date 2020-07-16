@@ -76,6 +76,46 @@ const index = [
     path: "/search",
     component: search,
     name: "search"
+  },
+  {
+    path: "/Kubernetes",
+    component: blog,
+    name: "Kubernetes",
+    meta: {
+      keepAlive: true // 需要被缓存
+    }
+  },
+  {
+    path: "/Finance",
+    component: blog,
+    name: "Finance",
+    meta: {
+      keepAlive: true // 需要被缓存
+    }
+  },
+  {
+    path: "/Flask",
+    component: blog,
+    name: "Flask",
+    meta: {
+      keepAlive: true // 需要被缓存
+    }
+  },
+  {
+    path: "/Vue",
+    component: blog,
+    name: "Vue",
+    meta: {
+      keepAlive: true // 需要被缓存
+    }
+  },
+  {
+    path: "/ML",
+    component: blog,
+    name: "ML",
+    meta: {
+      keepAlive: true // 需要被缓存
+    }
   }
 ];
 export default index

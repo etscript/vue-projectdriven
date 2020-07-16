@@ -29,6 +29,12 @@ const router = new Router({
 
 })
 
+// const originalReplace = router.prototype.replace;
+// router.prototype.replace = function replace(location) {
+//     return originalReplace.call(this, location).catch(err => err);
+// };
+
+
 router.beforeEach((to, from, next) => {
   // 使用钩子函数对路由进行权限跳转
   // 如果用户已经登录，访问登录和注册时，自动跳转到首页

@@ -86,11 +86,23 @@ export default {
   },
   created() {
     if (this.$route.query.tag) {
+      console.log(this.$route.query.tag)
       this.ArticlesOrderByTag()
     } else if (this.$route.query.classify) {
       this.ArticlesOrderByClassify()
     } else {
       this.getArticles()
+    }
+  },
+  watch:{
+    $route(to,from){
+      if (this.$route.query.tag) {
+        this.ArticlesOrderByTag()
+      } else if (this.$route.query.classify) {
+        this.ArticlesOrderByClassify()
+      } else {
+        this.getArticles()
+      }
     }
   },
   methods: {
@@ -137,13 +149,9 @@ export default {
       let param = {
         tag: this.$route.query.tag
       }
-      this.$post('api/tag/list', Object.assign(param, this.pageModel)).then(res => {
+      this.$post('api/article/tag', Object.assign(param, this.pageModel)).then(res => {
         this.pageModel.sumCount = res.data.total
-
-        this.articles = []
-        res.data.data.forEach(item => {
-          this.articles.push(item.article)
-        })
+        this.articles = res.data.data
         this.AddStaticUrl()
         this.Tag(this.$route.query.tag)
         this.loading = false
