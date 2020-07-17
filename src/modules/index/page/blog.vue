@@ -31,8 +31,10 @@
 
           <div class="comment">
             <div class="group-left">
-              <span><i class="iconfont lv-icon-huore">{{item.view_count}}</i> 热度</span>
-              <span><i class="iconfont lv-icon-xiaoxi3">{{item.commentCount}} 评论</i></span>
+              <!-- <span><i class="iconfont lv-icon-huore">{{item.view_count}}</i> 热度</span>
+              <span><i class="iconfont lv-icon-xiaoxi3">{{item.commentCount}} 评论</i></span> -->
+              <span><i class="iconfont lv-icon-huore"> {{item.view_count}}</i> </span>
+              <span><i class="iconfont lv-icon-xiaoxi3"> {{item.commentCount}} </i></span>
             </div>
             <div class="group-right iconfont lv-icon-kalendar"> {{item.created_at.substring(0,10)}}</div>
             <!-- <span><i class="iconfont lv-icon-huore"></i>{{item.view_count}}热度</span>
@@ -303,7 +305,7 @@ export default {
         font-size 12px
         span
           margin-right 15px
-          font-size 12px
+          font-size 13px
         i 
           margin-right 4px
           font-size 14px 
@@ -313,7 +315,7 @@ export default {
 
       .group-right
         justify-content  flex-end
-        font-size 12px
+        font-size 13px
 
       .group-right text
         justify-content  flex-end
