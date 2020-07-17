@@ -7,10 +7,10 @@
       <p>本站已萌萌哒运行{{longTime}}</p>
       <p class="base">Crafted with <i class="iconfont lv-icon-aixin"></i> by 
         <span>@etscript</span>&nbsp;&nbsp;change from 
-        <a class="green" href="https://github.com/etscript/flask-restful-example" target="_blank">Flask</a> + 
+        <a class="green" href="https://github.com/etscript/vue-flask" target="_blank">Flask</a> + 
         <a class="green" href="https://github.com/etscript/vue-projectdriven" target="_blank">Vue</a>
       </p>
-      <p>© 2018 - {{year}} &nbsp;&nbsp;项目驱动 &nbsp;&nbsp;<a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #fff">粤ICP备19044398号-1</a></p>
+      <!-- <p>© 2018 - {{year}} &nbsp;&nbsp;项目驱动 &nbsp;&nbsp;<a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #fff">粤ICP备19044398号-1</a></p> -->
       
     </div>
   </footer>
@@ -31,7 +31,7 @@ export default {
 
     let that = this;
     function getRemainderTime (){
-      let startTime = "2018-10-10"
+      let startTime = "2019-10-10"
       let s1 = new Date(startTime.replace(/-/g, "/")),
       s2 = new Date(),
       runTime = parseInt((s2.getTime() - s1.getTime()) / 1000);
