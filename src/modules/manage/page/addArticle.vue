@@ -8,9 +8,9 @@
           <el-form-item label="文章标题">
             <el-input size="small" v-model="form.title" class="input_title"></el-input>
           </el-form-item>
-          <!-- <el-form-item label="摘要">
-            <el-input size="small" v-model="form.desc" class="input_title"></el-input>
-          </el-form-item> -->
+          <el-form-item label="摘要">
+            <el-input size="small" v-model="form.content_short" class="input_title"></el-input>
+          </el-form-item>
           <el-row type="flex">
             <el-form-item label="所属分类">
               <el-input size="small" v-model="form.classify"></el-input>
@@ -78,7 +78,7 @@ export default {
       articleLoading: false,
       form: {
         title: '',
-        desc: '',
+        content_short: '',
         img: '',
         content: '',
         classify: '',
@@ -111,7 +111,7 @@ export default {
       this.blogBanner = '',
       this.form =  {
         title: '',
-        desc: '',
+        content_short: '',
         img: '',
         content: '',
         html_content: '',
