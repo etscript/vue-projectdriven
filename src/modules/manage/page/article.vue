@@ -18,7 +18,7 @@
           </el-table-column>
           <el-table-column label="标签" width="200">
             <template slot-scope="scope">
-              <template v-for="(item, index) in scope.row.tags">
+              <template v-for="(item, index) in scope.row.tags_name">
                 <el-tag size="mini" :key="index">{{item}}</el-tag>
               </template>
             </template>

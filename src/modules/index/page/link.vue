@@ -6,12 +6,12 @@
       
       <div class="text-box">
         <p>这里是一群可爱的小伙伴们，欢迎交换友链 ٩(ˊᗜˋ*)و</p>
-        <p>希望添加友链的小伙伴按这个格式写在留言区，我都会看的～</p>
+        <p>希望添加友链的小伙伴按这个格式发到 projectdriven@163.com，我都会看的～</p>
 
         <div class="examp">
           <h4>格式示例</h4>
           <p>名称: Project Driven</p>
-          <p>链接: http://project-driven.xyz</p>
+          <p>链接: https://projectdriven.cn</p>
           <!-- <p>头像: http://project-driven.xyz/u/23181508?s=460&v=4</p> -->
           <p>简介: Hello. I am Baymax, your personal healthcare companion.</p>
         </div>

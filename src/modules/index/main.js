@@ -39,9 +39,9 @@ Vue.prototype.$staticUrl = 'http://project-driven.test.upcdn.net/'
 // });
 
 if (process.env.NODE_ENV == "development") {
-    Vue.prototype.$baseApiUrl = "http://localhost:8080/api/v2";
+    Vue.prototype.$baseApiUrl = "http://localhost:5001/api/";
 } else {
-    Vue.prototype.$baseApiUrl = "http://api.golang365.com/api/v2";
+    Vue.prototype.$baseApiUrl = "https://projectdriven.cn/api/";
 }
 
 // console.log(process.env.NODE_ENV, '环境变量');

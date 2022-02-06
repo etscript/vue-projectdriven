@@ -116,6 +116,14 @@ const index = [
     meta: {
       keepAlive: true // 需要被缓存
     }
+  },
+  {
+    path: "/*",
+    component: blog,
+    name: "tag",
+    meta: {
+      keepAlive: true // 需要被缓存
+    }
   }
 ];
 export default index

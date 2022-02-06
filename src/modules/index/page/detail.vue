@@ -8,9 +8,9 @@
             <i class="iconfont lv-icon-kalendar"></i>
             {{detail.created_at}}
           </div>
-          <div class="tag-box" v-if="detail.tags && detail.tags.length">
+          <div class="tag-box" v-if="detail.tags_name && detail.tags_name.length">
             <i class="iconfont lv-icon-biaoqian6"></i>
-            <span v-for="(tagli, index) in detail.tags" :key="index">
+            <span v-for="(tagli, index) in detail.tags_name" :key="index">
               {{tagli}}
             </span>
           </div>
@@ -61,7 +61,7 @@
         </div>
       </div>
 
-      <div class="commentbox" v-if="user" >
+      <!-- <div class="commentbox" v-if="user" >
         <div class="comment-title">
           <p>评论 <span>「 {{detail.comment}} 」</span></p>
         </div>
@@ -91,9 +91,9 @@
               </Button>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- 评论列表 -->
-        <div class="none" v-if="!detail.comment">
+        <!-- <div class="none" v-if="!detail.comment">
           还没有评论，快来抢沙发。
         </div>
         <div v-else>
@@ -127,9 +127,9 @@
             </div>
             <MyPage :pageModel="pageModel" @selectList="selectRoleList" v-if="pageModel.sumCount>10"></MyPage>
           </div>
-        </div>
+        </div> -->
 
-      </div>
+      <!-- </div> -->
 
     </div>
 

@@ -81,18 +81,16 @@ export default {
     return {
       nav: [
         {name: '首页', url: '/blog', icon: 'ios-book'},
-        {name: 'Kubernetes', url: '/kubernetes', icon: 'logo-octocat'},
-        {name: 'Finance', url: '/finance', icon: 'md-chatboxes'},
-        {name: 'Flask', url: '/flask', icon: 'logo-usd'},
-        {name: 'Vue', url: '/vue', icon: 'md-chatboxes'},
-        {name: 'ML', url: '/ml', icon: 'md-chatboxes'},
+        // {name: 'Flask', url: '/flask', icon: 'logo-usd'},
+        // {name: 'Vue', url: '/vue', icon: 'md-chatboxes'},
         {name: '友链', url: '/link', icon: 'logo-octocat'},
         // {name: '打赏', url: '/donate', icon: 'logo-usd'},
-        {name: '留言', url: '/message', icon: 'md-chatboxes'},
+        // {name: '留言', url: '/message', icon: 'md-chatboxes'},
         {name: '我', url: '/about', icon: 'md-beer'},
       ],
       mobnav: '2',
-      keyword: ''
+      keyword: '',
+      haskeyword: false
     }
   },
   
@@ -101,10 +99,9 @@ export default {
       'user'
     ]),
   },
-  // created(){
-  //   console.log("看下user的数据"),
-  //   console.log(this.user)
-  // },
+  created(){
+    this.getTags()
+  },
   watch:{
     $route(to,from){
       this.mobnav = '2'
@@ -132,6 +129,12 @@ export default {
         this.$router.push({ path: item, query:{tag: String(item).substr(1)}})
       }
       
+    },
+    getTags() {
+      this.$post('/api/tag/indexlist').then(res => {
+        var tags = res.data
+        this.nav.splice(1, 0, ...tags) 
+      })
     },
     changeMenu(item) {
       if (item == 'changePasswd') {
@@ -164,7 +167,8 @@ export default {
     search() {
       // 当有选择标签或者分类时点击博客自动选择
       if (this.keyword == '') {
-        this.$router.push({ path:'/search'})
+        // this.$router.push({ path:'/search'})
+        console.log("空搜索")
       } else {
         this.$router.push({ path:'/search', query:{q: this.keyword}})
         this.keyword = ''

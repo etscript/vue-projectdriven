@@ -4,6 +4,7 @@ const Setting = resolve => require(["@/modules/manage/page/setting"], resolve);
 const Article = resolve => require(["@/modules/manage/page/article"], resolve);
 const AddArticle = resolve => require(["@/modules/manage/page/addArticle"], resolve);
 const Users = resolve => require(["@/modules/manage/page/users"], resolve);
+const Tags = resolve => require(["@/modules/manage/page/tags"], resolve);
 const Message = resolve => require(["@/modules/manage/page/message"], resolve);
 const Comment = resolve => require(["@/modules/manage/page/comment"], resolve);
 const Rassword = resolve => require(["@/modules/manage/page/password"], resolve);
@@ -50,6 +51,14 @@ const manage = [
         path: "/article/add",
         component: AddArticle,
         name: "写博客",
+        meta: {
+          requireAuth: true
+        }
+      },
+      {
+        path: "/tags",
+        component: Tags,
+        name: "标签列表",
         meta: {
           requireAuth: true
         }

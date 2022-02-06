@@ -25,6 +25,10 @@ export default {
           url: '/article/add'
         },
         {
+          name: '标签列表',
+          url: '/tags'
+        },
+        {
           name: '基础设置',
           url: '/setting'
         },

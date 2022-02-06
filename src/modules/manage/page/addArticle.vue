@@ -16,7 +16,12 @@
               <el-input size="small" v-model="form.classify"></el-input>
             </el-form-item>
             <el-form-item label="标签">
-              <el-input size="small" v-model="form.tags" placeholder="多个标签用英文逗号隔开"></el-input>
+              <!-- <el-input size="small" v-model="form.tags" placeholder="多个标签用英文逗号隔开"></el-input> -->
+              <el-select @change="$forceUpdate()" v-model="selectedtags" multiple filterable collapse-tags placeholder="请选择" style="width:100%;">
+                  <el-option v-for="tag in tags" :key="tag.id"
+                              :label="tag.name" :value="tag"/>
+              </el-select>
+            
             </el-form-item>
           </el-row>
 
@@ -76,13 +81,16 @@ export default {
       blogBanner: '',
       loading: false,
       articleLoading: false,
+      tags: [],
+      selectedtags: [],
       form: {
         title: '',
         content_short: '',
         img: '',
         content: '',
         classify: '',
-        tags: '',
+        tags: [],
+        selectedtags: [],
         clicks: '',
         like :'',
         deleted_at: false,
@@ -104,6 +112,9 @@ export default {
   created() {
     if (this.$route.params.id) {
       this.getArticle()
+      this.getTags()
+    }else{
+      this.getTags()
     }
   },
   watch:{
@@ -133,6 +144,17 @@ export default {
         this.$router.push('/articlelist')
       })
     },
+    getTags() {
+      // let params = {
+      //   id: this.$route.params.id,
+      //   all: 1
+      // }
+      this.$post('/api/tag/list').then(res => {
+        // console.log(res.data)
+        // this.form.tags = res.data.tags.join(',')
+        this.tags = res.data
+      })
+    },
     getArticle() {
       this.articleLoading = true
       let params = {
@@ -140,16 +162,17 @@ export default {
         all: 1
       }
       this.$post('/api/article', params).then(res => {
-        console.log(res.data)
+        
         this.articleLoading = false
         this.form = res.data
-        this.form.tags = res.data.tags.join(',')
+        this.selectedtags = res.data.tags
         if (this.form.img) {
           this.blogBanner = this.$staticUrl+this.form.img
         }
       })
     },
     editBtn() {
+      this.form.selectedtags = this.selectedtags
       this.form.article_filter_content = this.$refs.md.d_render;
       this.loading = true
       this.$post('/api/article/edit', this.form).then(res => {
