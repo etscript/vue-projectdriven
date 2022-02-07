@@ -12,7 +12,7 @@
           tooltip-effect="dark">
           <el-table-column prop="id" label="用户ID" width="80">
           </el-table-column>
-          <el-table-column prop="name" label="用户名" >
+          <el-table-column prop="nickname" label="用户名" >
           </el-table-column>
           <el-table-column prop="email" label="邮箱地址" show-overflow-tooltip >
           </el-table-column>
@@ -21,9 +21,9 @@
               {{ scope.row.admin ? '超级管理员' : '普通用户' }}
             </template>
           </el-table-column>
-          <el-table-column prop="created_at" label="注册日期" show-overflow-tooltip >
+          <el-table-column prop="create_time" label="注册日期" show-overflow-tooltip >
           </el-table-column>
-          <el-table-column prop="updated_at" label="最后登录时间" show-overflow-tooltip >
+          <el-table-column prop="update_time" label="最后登录时间" show-overflow-tooltip >
           </el-table-column>
           <!-- <el-table-column label="操作" width="120">
             <template slot-scope="scope">
@@ -60,7 +60,7 @@ export default {
     getUsers() {
       this.loading = true
       this.$post('/api/user/list', this.pageModel).then(res => {
-        this.Users = res.data.data
+        this.Users = res.data
         this.pageModel.sumCount = res.data.total
         this.loading = false
       }).catch(() => {
