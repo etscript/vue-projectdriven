@@ -23,7 +23,7 @@ import TextLoading from '@/components/TextLoading'
 Vue.use(TextLoading)
 
 Vue.prototype.$baseUrl = process.env.VUE_APP_URL
-Vue.prototype.$staticUrl = 'http://image.projectdriven.cn/'
+Vue.prototype.$staticUrl = 'https://image.projectdriven.cn/'
 // }
 // Vue.prototype.$baseUrl = baseUrl
 // // 引入ivew,
